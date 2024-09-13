@@ -1,0 +1,107 @@
+﻿﻿@{
+    var msg = ViewBag.msg;
+}
+
+<!-- Start banner Area -->
+<section class="banner-area relative about-banner" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12 text-center">
+                <h1 class="text-white">
+                    Contact Us
+                </h1>
+                <p class="text-white link-nav">
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+                    <span class="lnr lnr-arrow-right"></span>
+                    <a asp-controller="Home" asp-action="Contact">Contact Us</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- Start Google Map Section -->
+<div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 150px 0px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.137712000799!2d67.03045847529852!3d24.927378142576725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f90157042d3%3A0x93d609e8bec9a880!2sAptech%20Computer%20Education%20North%20Nazimabad%20Center!5e0!3m2!1sen!2s!4v1726036840414!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<!-- End Google Map Section -->
+<!-- Start contact-page Area -->
+<section class="contact-page-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Map -->
+                <div class="map-wrap" style="width:100%; height: 445px; margin: -270px 0px" id="map"></div>
+            </div>
+            <div class="col-lg-4 d-flex flex-column address-wrap">
+                <!-- Address -->
+                <div class="single-contact-address d-flex flex-row">
+                    <div class="icon">
+                        <span class="lnr lnr-home"></span>
+                    </div>
+                    <div class="contact-details">
+                        <h5>Nazimabad, Karachi</h5>
+                        <p> SD-1, Block A North Nazimabad Town, Karachi, 74700</p>
+                    </div>
+                </div>
+                <!-- Phone -->
+                <div class="single-contact-address d-flex flex-row">
+                    <div class="icon">
+                        <span class="lnr lnr-phone-handset"></span>
+                    </div>
+                    <div class="contact-details">
+                        <h5>(021) 36630102</h5>
+                        <p>Mon to Fri 9am to 6pm</p>
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class="single-contact-address d-flex flex-row">
+                    <div class="icon">
+                        <span class="lnr lnr-envelope"></span>
+                    </div>
+                    <div class="contact-details">
+                        <h5>support@aptechinstitution.com</h5>
+                        <p>Send us your query anytime!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <!-- Contact Form -->
+                <!-- Contact Form -->
+                <form class="form-area contact-form" id="contactForm" asp-action="Contact">
+                    <div class="row">
+                        <div class="col-lg-6 form-group">
+                            <input name="name" placeholder="Enter your name" class="mb-20 form-control" required="" type="text">
+                            <input name="email" placeholder="Enter email address" class="mb-20 form-control" required="" type="email">
+                            <input name="subject" placeholder="Enter subject" class="mb-20 form-control" required="" type="text">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <textarea class="common-textarea form-control" name="message" placeholder="Enter your message" required></textarea>
+                        </div>
+                        <div class="col-lg-12 text-right">
+                            <div class="alert-msg" style="text-align: left;"></div>
+                            <button type="submit" class="genric-btn primary">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Thank You Message -->
+                @if (msg != null)
+                {
+                    <div id="thankYouMessage" style="display: block; text-align: center; margin-top: 20px;">
+                        <p>@msg</p>
+                    </div>
+                }
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End contact-page Area -->

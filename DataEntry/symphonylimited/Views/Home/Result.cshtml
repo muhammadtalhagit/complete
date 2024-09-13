@@ -1,0 +1,56 @@
+﻿ 
+@{
+}
+﻿@{
+
+    string result = TempData["result"]?.ToString() ?? string.Empty;
+}
+
+<!-- start banner A7rea -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen d-flex align-items-center justify-content-between">
+            <div class="banner-content col-lg-9 col-md-12">
+                <h1 class="text-uppercase" data-aos="zoom-in">
+                    We Ensure better education
+                    for a better world
+                </h1>
+                <p class="pt-10 pb-10" data-aos="zoom-out">
+                    In the history of modern astronomy, there is probably no one greater leap forward than the building and launch of the space telescope known as the Hubble.
+                </p>
+                <a href="#" class="primary-btn text-uppercase" data-aos="flip-left">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- Start blog Area -->
+<section class="blog-area section-gap" id="blog">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    @if (result == "Fail")
+                    {
+                        <h1 class="mb-10 text-danger"> @result</h1>
+                        <p>Sorry, you are not eligible for this course, do try next time with good preparations.</p>
+                    }
+                    else if (result == "Pass")
+                    {
+                        <h1 class="mb-10 text-success"> @result</h1>
+                        <p>Congratulations..! You've cleared the exam. Please visit our center for academic report.</p>
+                    }
+                    else if (string.IsNullOrEmpty(result))
+                    {
+
+                        <p class="mb-10 text-danger">Can't find Your result. Check again.</p>
+                        @*     <a asp-action="EntranceExammination" class="btn btn-primary">Can't find Your result. Check again</a> *@
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End blog Area -->
+<!-- End blog Area -->

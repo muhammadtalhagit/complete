@@ -1,0 +1,457 @@
+admin panel
+-courses
+. title,discription,image,fees,duration
+-entrance student
+.name,email,roll no., phone no. ,"result"(pass/fail)
+-registered students
+.id, name, email,phone no. , address , fees status(paid / unpaid), course id(fk)
+-admin
+.username, email, password
+-about
+.title , discription ,image
+-contact
+.branch details, contact email , address , image
+-fees
+.id,std id, course id,(will update status in student table)
+-exam
+.exam id, date , time , venue ,result date
+
+
+To design a navigation bar for the Symphony Ltd. online portal, you can create two separate navigation systems: one for general users (students and visitors) and one for the admin. Below are the suggested tabs for the navigation bars along with a step-by-step flow for each type of user.
+
+General User Navigation Bar
+This navigation bar is for visitors who are exploring the website, learning about the courses, and checking results.
+
+Home
+
+Brief description of the institute
+Overview of courses offered
+Latest news and updates
+About Us
+
+Information about the institution
+History, mission, and vision
+Faculty and staff profiles
+Courses
+
+List of all courses offered
+Detailed description of each course
+Topics covered, duration, and fees
+Special programs or certifications
+Entrance Examination
+
+Information about upcoming exams
+How to apply for the entrance exam
+Exam schedule and fees
+Link to check exam results (input roll number to view results)
+FAQ
+
+Frequently asked questions
+How to join a course
+Details about lab facilities, payment methods, etc.
+Contact Us
+
+List of different branches and their addresses
+Contact numbers and email addresses
+Map and directions to the centers
+Admin Navigation Bar
+This navigation bar is for administrators who will manage the content and operations of the site.
+
+Dashboard
+
+Overview of site activities
+Quick access to manage different sections
+Manage Courses
+
+Add new courses
+Update existing course details
+Remove outdated courses
+Entrance Examination
+
+Update information about upcoming exams
+Enter and manage student exam results
+Segregate students based on exam results
+Set and update entrance exam fees
+Student Results
+
+Enter student marks and class segregation details
+Manage course fees based on the segregation
+Update or delete existing results
+FAQ Management
+
+Add new FAQs
+Update or delete existing FAQs
+Manage Centers
+
+Add, update, or delete branch locations and contact details
+Maintain the list of branches, addresses, and phone numbers
+About Us
+
+Update the information about the institution
+Modify or add details about faculty and history
+Logout
+
+Securely log out of the admin panel
+User Flow: General User
+Visit Home Page → Explore brief details about the institute and courses.
+Navigate to "Courses" → View available courses and their details.
+Go to "Entrance Examination" → Learn about upcoming exams, apply, and check results by entering the roll number.
+Visit "FAQ" → Find answers to common queries.
+Check "Contact Us" → Get branch contact details and locations.
+User Flow: Admin
+Login as Admin → Access the admin dashboard.
+Manage Courses → Add, update, or delete course details.
+Update Exam Information → Enter upcoming exam details and manage results.
+Enter Results → Segregate students and update course fees based on results.
+Manage FAQ → Add, update, or remove FAQ entries.
+Update Center Details → Modify or add branch information.
+Logout → Log out securely after completing the tasks.
+This setup ensures that both the general users and admin have clear, easy-to-navigate options tailored to their needs.
+
+
+<div class="card-group">
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+
+
+
+-------------------------------------------------------------------------
+To design an effective database schema for the admin panel of Symphony Ltd.'s online portal, we need to ensure it supports all required functionalities for managing courses, entrance exams, student results, FAQs, and center details. Below is a suggested schema for the database:
+
+### **Database Schema**
+
+#### **Tables**
+
+1. **Courses**
+   - `CourseID` (Primary Key, INT, Auto Increment)
+   - `CourseName` (VARCHAR(255), Not Null)
+   - `CourseDescription` (TEXT)
+   - `CourseDuration` (VARCHAR(50))
+   - `CourseFees` (DECIMAL(10, 2))
+   - `TopicsCovered` (TEXT)
+
+2. **EntranceExams**
+   - `ExamID` (Primary Key, INT, Auto Increment)
+   - `ExamDate` (DATE)
+   - `ExamFees` (DECIMAL(10, 2))
+   - `ExamDetails` (TEXT)
+
+3. **Students**
+   - `StudentID` (Primary Key, INT, Auto Increment)
+   - `Name` (VARCHAR(255), Not Null)
+   - `RollNumber` (VARCHAR(50), Unique, Not Null)
+   - `Email` (VARCHAR(255))
+   - `PhoneNumber` (VARCHAR(20))
+   - `Address` (TEXT)
+
+4. **StudentResults**
+   - `ResultID` (Primary Key, INT, Auto Increment)
+   - `StudentID` (Foreign Key, INT, References `Students(StudentID)`)
+   - `ExamID` (Foreign Key, INT, References `EntranceExams(ExamID)`)
+   - `Marks` (DECIMAL(5, 2))
+   - `ClassAssigned` (VARCHAR(50))
+   - `FeesDue` (DECIMAL(10, 2))
+   - `PaymentDeadline` (DATE)
+
+5. **FAQs**
+   - `FAQID` (Primary Key, INT, Auto Increment)
+   - `Question` (TEXT)
+   - `Answer` (TEXT)
+
+6. **Centers**
+   - `CenterID` (Primary Key, INT, Auto Increment)
+   - `CenterName` (VARCHAR(255))
+   - `Address` (TEXT)
+   - `PhoneNumber` (VARCHAR(20))
+   - `Email` (VARCHAR(255))
+
+7. **Payments**
+   - `PaymentID` (Primary Key, INT, Auto Increment)
+   - `StudentID` (Foreign Key, INT, References `Students(StudentID)`)
+   - `PaymentType` (ENUM('Cash', 'Cheque', 'DD'))
+   - `PaymentAmount` (DECIMAL(10, 2))
+   - `ReceiptNumber` (VARCHAR(50))
+   - `PaymentDate` (DATE)
+
+8. **CourseRegistrations**
+   - `RegistrationID` (Primary Key, INT, Auto Increment)
+   - `StudentID` (Foreign Key, INT, References `Students(StudentID)`)
+   - `CourseID` (Foreign Key, INT, References `Courses(CourseID)`)
+   - `RegistrationDate` (DATE)
+
+#### **Relationships**
+
+- **Courses** and **CourseRegistrations**: A course can have multiple registrations.
+- **Students** and **StudentResults**: A student can have multiple results (one for each exam).
+- **EntranceExams** and **StudentResults**: Each exam can have multiple student results.
+- **Students** and **Payments**: A student can make multiple payments.
+- **Centers** and **Students**: A center can have multiple students, though this relationship might be indirect or managed through registrations.
+
+#### **Database Schema Diagram**
+
+Here's a conceptual representation of the database schema:
+
+```plaintext
++------------------+
+|     Courses      |
++------------------+
+| CourseID (PK)    |
+| CourseName       |
+| CourseDescription|
+| CourseDuration   |
+| CourseFees       |
+| TopicsCovered    |
++------------------+
+
++----------------------+
+|   EntranceExams      |
++----------------------+
+| ExamID (PK)          |
+| ExamDate             |
+| ExamFees             |
+| ExamDetails          |
++----------------------+
+
++----------------------+
+|     Students         |
++----------------------+
+| StudentID (PK)       |
+| Name                 |
+| RollNumber (Unique)  |
+| Email                |
+| PhoneNumber          |
+| Address              |
++----------------------+
+
++----------------------+
+|  StudentResults      |
++----------------------+
+| ResultID (PK)        |
+| StudentID (FK)       |
+| ExamID (FK)          |
+| Marks                |
+| ClassAssigned        |
+| FeesDue              |
+| PaymentDeadline      |
++----------------------+
+
++----------------------+
+|       FAQs           |
++----------------------+
+| FAQID (PK)           |
+| Question             |
+| Answer               |
++----------------------+
+
++----------------------+
+|      Centers         |
++----------------------+
+| CenterID (PK)        |
+| CenterName           |
+| Address              |
+| PhoneNumber          |
+| Email                |
++----------------------+
+
++----------------------+
+|     Payments         |
++----------------------+
+| PaymentID (PK)       |
+| StudentID (FK)       |
+| PaymentType          |
+| PaymentAmount        |
+| ReceiptNumber        |
+| PaymentDate          |
++----------------------+
+
++----------------------+
+| CourseRegistrations  |
++----------------------+
+| RegistrationID (PK)  |
+| StudentID (FK)       |
+| CourseID (FK)        |
+| RegistrationDate     |
++----------------------+
+```
+
+This schema ensures that all required data for managing courses, entrance exams, student information, and payments are captured and can be accessed or modified through the admin panel efficiently.
+
+
+Admin pannel final 
+
+To create an effective admin panel database schema for your application, we'll organize it step by step, taking into account the key features such as course management, entrance examination details, student information, payment data, and institution details (like FAQs, contact information, etc.). We'll set up appropriate primary and foreign keys, normalizing the schema to ensure data integrity.
+
+### Step 1: Define the Main Entities
+
+- **Admin**
+- **Courses**
+- **Topics**
+- **Entrance Exam**
+- **Student**
+- **Results**
+- **Payments**
+- **Institution Info (About Us, FAQ, Contact Us)**
+
+### Step 2: Design Database Tables
+
+#### 1. **Admin Table**
+- Stores admin login credentials and basic details.
+
+| Column Name      | Data Type        | Constraints        |
+|------------------|------------------|--------------------|
+| `admin_id`       | INT              | PRIMARY KEY        |
+| `username`       | VARCHAR(255)     | UNIQUE             |
+| `password_hash`  | VARCHAR(255)     | NOT NULL           |
+| `email`          | VARCHAR(255)     | UNIQUE, NOT NULL   |
+| `created_at`     | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP |
+
+#### 2. **Courses Table**
+- Stores details about courses offered by the institution.
+
+| Column Name    | Data Type        | Constraints        |
+|----------------|------------------|--------------------|
+| `course_id`    | INT              | PRIMARY KEY        |
+| `course_name`  | VARCHAR(255)     | NOT NULL           |
+| `course_desc`  | TEXT             |                    |
+| `created_at`   | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP |
+
+#### 3. **Topics Table**
+- Contains topics covered under each course.
+
+| Column Name    | Data Type        | Constraints         |
+|----------------|------------------|---------------------|
+| `topic_id`     | INT              | PRIMARY KEY         |
+| `course_id`    | INT              | FOREIGN KEY (Courses.course_id) ON DELETE CASCADE |
+| `topic_name`   | VARCHAR(255)     | NOT NULL            |
+| `created_at`   | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP |
+
+#### 4. **Entrance Exam Table**
+- Stores information about entrance exams.
+
+| Column Name     | Data Type        | Constraints        |
+|-----------------|------------------|--------------------|
+| `exam_id`       | INT              | PRIMARY KEY        |
+| `course_id`     | INT              | FOREIGN KEY (Courses.course_id) ON DELETE CASCADE |
+| `exam_date`     | DATE             |                    |
+| `exam_fee`      | DECIMAL(10, 2)   |                    |
+| `created_at`    | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP |
+
+#### 5. **Students Table**
+- Stores information about students who take part in the entrance exam and are registered for courses.
+
+| Column Name      | Data Type        | Constraints        |
+|------------------|------------------|--------------------|
+| `student_id`     | INT              | PRIMARY KEY        |
+| `roll_number`    | VARCHAR(255)     | UNIQUE, NOT NULL   |
+| `student_name`   | VARCHAR(255)     | NOT NULL           |
+| `exam_id`        | INT              | FOREIGN KEY (Entrance_Exam.exam_id) ON DELETE SET NULL |
+| `class`          | VARCHAR(50)      |                    |
+| `created_at`     | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP |
+
+#### 6. **Results Table**
+- Stores exam results of students.
+
+| Column Name     | Data Type        | Constraints        |
+|-----------------|------------------|--------------------|
+| `result_id`     | INT              | PRIMARY KEY        |
+| `student_id`    | INT              | FOREIGN KEY (Students.student_id) ON DELETE CASCADE |
+| `marks`         | INT              |                    |
+| `class`         | VARCHAR(50)      |                    |
+| `created_at`    | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP |
+
+#### 7. **Payments Table**
+- Stores payment information for the courses or entrance exams.
+
+| Column Name       | Data Type        | Constraints        |
+|-------------------|------------------|--------------------|
+| `payment_id`      | INT              | PRIMARY KEY        |
+| `student_id`      | INT              | FOREIGN KEY (Students.student_id) ON DELETE CASCADE |
+| `amount_paid`     | DECIMAL(10, 2)   | NOT NULL           |
+| `payment_method`  | VARCHAR(50)      |                    |
+| `receipt_number`  | VARCHAR(255)     | UNIQUE, NOT NULL   |
+| `payment_date`    | DATE             |                    |
+
+#### 8. **About Us Table**
+- Stores institution information on the About Us page.
+
+| Column Name    | Data Type        | Constraints        |
+|----------------|------------------|--------------------|
+| `about_id`     | INT              | PRIMARY KEY        |
+| `about_text`   | TEXT             |                    |
+| `created_at`   | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP |
+
+#### 9. **FAQs Table**
+- Stores frequently asked questions.
+
+| Column Name    | Data Type        | Constraints        |
+|----------------|------------------|--------------------|
+| `faq_id`       | INT              | PRIMARY KEY        |
+| `question`     | VARCHAR(255)     | NOT NULL           |
+| `answer`       | TEXT             | NOT NULL           |
+| `created_at`   | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP |
+
+#### 10. **Contact Us Table**
+- Stores information about the contact details for different branches.
+
+| Column Name      | Data Type        | Constraints        |
+|------------------|------------------|--------------------|
+| `contact_id`     | INT              | PRIMARY KEY        |
+| `branch_name`    | VARCHAR(255)     | NOT NULL           |
+| `address`        | TEXT             |                    |
+| `phone_number`   | VARCHAR(20)      |                    |
+| `created_at`     | TIMESTAMP        | DEFAULT CURRENT_TIMESTAMP |
+
+### Step 3: Setting Relationships
+
+- **Admin** does not have a foreign key since it is a standalone table for authentication and admin management.
+- **Courses → Topics**: One-to-Many Relationship (A course has many topics).
+- **Courses → Entrance Exam**: One-to-Many Relationship (A course can have multiple entrance exams).
+- **Entrance Exam → Students**: Many-to-One Relationship (Many students take the same exam).
+- **Students → Results**: One-to-One Relationship (Each student has one result per exam).
+- **Students → Payments**: One-to-Many Relationship (A student may make multiple payments).
+
+### Step 4: Normalization and Referential Integrity
+
+- **Normalization**: Ensures that data redundancy is minimized. Each table has a specific purpose and only stores information related to that entity.
+- **Referential Integrity**: Foreign key constraints ensure that any changes in one table (e.g., deleting a course) are cascaded appropriately to related tables, ensuring consistency.
+
+### Diagram (Optional)
+You could visualize this as an Entity-Relationship Diagram (ERD) to further clarify the relationships between tables.
+
+This schema provides a solid foundation for building the admin panel with proper management of courses, exams, students, and related information.
+
+
+
+
+//first time command
+
+Scaffold-DbContext "data source=.;initial catalog=symphony;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+//command after making changes in database
+Scaffold-DbContext "data source=.;initial catalog=food;user id=sa;password=aptech; TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
+
+
+Scaffold-DbContext "Data Source=.;Initial Catalog=symphony;Integrated Security=True;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force

@@ -1,0 +1,17 @@
+admin panel
+-courses
+. title,discription,image,fees,duration
+-entrance student
+.name,email,roll no., phone no. ,"result"(pass/fail)
+-registered students
+.id, name, email,phone no. , address , fees status(paid / unpaid), course id(fk)
+-admin
+.username, email, password
+-about
+.title , discription ,image
+-contact
+.branch details, contact email , address , image
+-fees
+.id,std id, course id,(will update status in student table)
+-exam
+.exam id, date , time , venue ,result date

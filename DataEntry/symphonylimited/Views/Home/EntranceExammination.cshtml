@@ -1,0 +1,305 @@
+﻿ 
+@{
+}
+<!-- start banner Area -->
+<section class="banner-area relative about-banner" id="home">
+	<div class="overlay overlay-bg"></div>
+	<div class="container">
+		<div class="row d-flex align-items-center justify-content-center">
+			<div class="about-content col-lg-12">
+				<h1 class="text-white">
+					Entrance Exammination
+				</h1>
+				<p class="text-white link-nav"><a asp-controller="Home" asp-action="Index">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a asp-controller="Home" asp-action="EntranceExammination">EntranceExamination</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="feature-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4" data-aos="fade-up"
+                 data-aos-duration="3000">
+                <div class="single-feature">
+                    <div class="title">
+                        <h4>Learn Online Courses</h4>
+                    </div>
+                    <div class="desc-wrap">
+                        <p>
+                            Usage of the Internet is becoming more common due to rapid advancement
+                            of technology.
+                        </p>
+                        <a href="#">Join Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-down"
+                 data-aos-duration="3000">
+                <div class="single-feature">
+                    <div class="title">
+                        <h4>No.1 of universities</h4>
+                    </div>
+                    <div class="desc-wrap">
+                        <p>
+                            For many of us, our very first experience of learning about the celestial bodies begins when we saw our first.
+                        </p>
+                        <a href="#">Join Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up"
+                 data-aos-duration="3000">
+                <div class="single-feature">
+                    <div class="title">
+                        <h4>Huge Library</h4>
+                    </div>
+                    <div class="desc-wrap">
+                        <p>
+                            If you are a serious astronomy fanatic like a lot of us are, you can probably remember that one event.
+                        </p>
+                        <a href="#">Join Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Start course-details Area -->
+<section class="course-details-area ">
+	<div class="container">
+ 		<div id="upcoming-exams"></div>
+		<div id="application-instructions"></div>
+		<div id="exam-schedule-and-fees"></div>
+		<div id="check-results"></div>
+	</div>
+
+</section>
+
+     <div class="about-content col-md-11">
+    <h1>Check Exam Results</h1>
+    <p>Enter your Roll Number to view results:</p>
+    <form asp-action="CheckResult" method="post" class="form-area contact-form text-right">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-lg-6 form-group">
+                <input name="roll"
+                       placeholder="Enter your Roll Number"
+                       class="mb-20 form-control"
+                       required
+                       type="number"
+                       min="1"
+                       aria-label="Roll Number" />
+
+                <button type="submit"
+                        class="genric-btn primary">
+                    Check Results
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<section class="info-area pb-120">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6 no-padding info-area-left">
+                <img class="img-fluid" src="~/img/istockphoto-492198113-612x612.jpg" alt="">
+            </div>
+            <div class="col-lg-6 info-area-right">
+                <h1>Upcoming Exams</h1>
+                <table class="exam-table table-bordered bordered-dark">
+                    <tr>
+                        <th>Exam</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                    </tr>
+                    <tr>
+                        <td>Exam 1</td>
+                        <td>20th August 2024</td>
+                        <td>Center A</td>
+                    </tr>
+                    <tr>
+                        <td>Exam 2</td>
+                        <td>25th August 2024</td>
+                        <td>Center B</td>
+                    </tr>
+                    <tr>
+                        <td>Exam 3</td>
+                        <td>30th August 2024</td>
+                        <td>Center C</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info-area pb-120">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6 no-padding info-area-left">
+                <img class="img-fluid" src="~/img/istockphoto-492198113-612x612.jpg" alt="">
+            </div>
+            <div class="col-lg-6 info-area-right">
+                <h1>How to Apply for the Entrance Exam</h1>
+                <ol>
+                    <li>Visit the official website.</li>
+                    <li>Create an account or log in.</li>
+                    <li>Fill out the application form with the required details.</li>
+                    <li>Upload the necessary documents.</li>
+                    <li>Pay the application fee.</li>
+                    <li>Submit the application and take a printout for future reference.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info-area pb-120">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6 no-padding info-area-left">
+                <img class="img-fluid" src="~/img/istockphoto-492198113-612x612.jpg" alt="">
+            </div>
+            <div class="col-lg-6 info-area-right">
+                <h1>Exam Schedule and Fees</h1>
+                <table class="fee-table">
+                    <tr>
+                        <th>Exam</th>
+                        <th>Date</th>
+                        <th>Fee</th>
+                    </tr>
+                    <tr>
+                        <td>Exam 1</td>
+                        <td>20th August 2024</td>
+                        <td>$50</td>
+                    </tr>
+                    <tr>
+                        <td>Exam 2</td>
+                        <td>25th August 2024</td>
+                        <td>$55</td>
+                    </tr>
+                    <tr>
+                        <td>Exam 3</td>
+                        <td>30th August 2024</td>
+                        <td>$60</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info-area pb-120">
+    @* <div class="container-fluid">
+        <div class="row align-items-center"> *@
+
+           @*  <div class="col-lg-8">
+                <h1>Check Exam Results</h1>
+                <p>Enter your Roll Number to view results:</p>
+                <form class="form-area contact-form text-right" id="myForm" method="post">
+                    <div class="row">
+                <div class="col-lg-6 form-group">
+                            <input name="roll_number" placeholder="Enter your Rol Number" class="mb-20 form-control" required="" type="text">
+
+                    <div class="alert-msg" style="text-align: left;"></div>
+                    <button class="genric-btn primary" style="display:flex">Check Results</button>
+                        </div>
+                        <div class="col-lg-8">
+                             <div class="alert-msg" style="text-align: left;"></div>
+                            <button class="genric-btn primary">Check Results</button> 
+                        </div>
+                    </div>
+                </form>
+            </div> *@
+@* 
+        </div>
+    </div> *@
+</section>
+
+
+@* <div class="col-lg-8">
+    <h1>Check Exam Results</h1>
+    <p>Enter your Roll Number to view results:</p>
+    <form class="form-area contact-form text-right" id="myForm" method="post">
+        <div class="row">
+            <div class="col-lg-6 form-group">
+                <input name="roll_number" placeholder="Enter your Rol Number" class="mb-20 form-control" required="" type="text">
+            </div>
+            <div class="col-lg-12">
+                <div class="alert-msg" style="text-align: left;"></div>
+                <button class="genric-btn primary" style="float: right;">Check Results</button>
+            </div>
+        </div>
+    </form>
+</div> *@
+
+@* <section class="course-details-area pt-120">
+    <h2>Upcoming Exams</h2>
+    <table class="exam-table">
+        <tr>
+            <th>Exam</th>
+            <th>Date</th>
+            <th>Location</th>
+        </tr>
+        <tr>
+            <td>Exam 1</td>
+            <td>20th August 2024</td>
+            <td>Center A</td>
+        </tr>
+        <tr>
+            <td>Exam 2</td>
+            <td>25th August 2024</td>
+            <td>Center B</td>
+        </tr>
+        <tr>
+            <td>Exam 3</td>
+            <td>30th August 2024</td>
+            <td>Center C</td>
+        </tr>
+    </table>
+</section> *@
+@* <section class="course-details-area pt-120">
+    <h2>How to Apply for the Entrance Exam</h2>
+    <ol>
+        <li>Visit the official website.</li>
+        <li>Create an account or log in.</li>
+        <li>Fill out the application form with the required details.</li>
+        <li>Upload the necessary documents.</li>
+        <li>Pay the application fee.</li>
+        <li>Submit the application and take a printout for future reference.</li>
+    </ol>
+    </section> *@
+@* <section class="course-details-area pt-120">
+    <h2>Exam Schedule and Fees</h2>
+    <table class="fee-table">
+        <tr>
+            <th>Exam</th>
+            <th>Date</th>
+            <th>Fee</th>
+        </tr>
+        <tr>
+            <td>Exam 1</td>
+            <td>20th August 2024</td>
+            <td>$50</td>
+        </tr>
+        <tr>
+            <td>Exam 2</td>
+            <td>25th August 2024</td>
+            <td>$55</td>
+        </tr>
+        <tr>
+            <td>Exam 3</td>
+            <td>30th August 2024</td>
+            <td>$60</td>
+        </tr>
+    </table>
+    </section> *@
+@* <section class="course-details-area pt-120">
+    <h2>Check Exam Results</h2>
+    <p>Enter your Roll Number to view results:</p>
+    <form action="check_results.html" method="get">
+        <input type="text" name="roll_number" placeholder="Enter Roll Number">
+        <button type="submit">Check Results</button>
+    </form>
+</section> *@

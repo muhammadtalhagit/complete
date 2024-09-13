@@ -1,0 +1,71 @@
+﻿@model symphonylimited.Models.User
+
+@{
+     
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SYMPHONY LIMITED</title>
+    <link rel="shortcut icon" type="image/png" href="~/admin/images/logos/favicon.png" />
+    <link rel="stylesheet" href="~/admin/css/styles.min.css" />
+</head>
+
+<body>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed">
+        <div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center w-100">
+                <div class="row justify-content-center w-100">
+                    <div class="col-md-8 col-lg-6 col-xxl-3">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                                    <img src="~/admin/images/logos/dark-logo.svg" width="180" alt="">
+                                </a>
+                                <p class="text-center">Your Social Campaigns</p>
+                                <h3 class="text-danger">@ViewBag.msg</h3>
+                                    <form asp-action="Login">
+                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            
+                        <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                     </div>
+                    <div class="form-group">
+                         <label asp-for="Password" class="control-label"></label>
+                         <input asp-for="Password" class="form-control" type="password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                         <input style="width:100%;" type="submit" value="Login" class="btn btn-primary" />
+                        </div>
+                        </form>
+                     </div>
+                    </div>
+
+                    @* <div>
+             <a asp-action="Index">Back to List</a>
+                </div> *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="~/admin/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+ 
